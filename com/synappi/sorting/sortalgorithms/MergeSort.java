@@ -2,11 +2,13 @@ package com.synappi.sorting.sortalgorithms;
 
 /**
  * Merge sort algorithm adapted from Lars Vogel.
+ * Divide the unsorted list into n sublists, each containing 1 element (a list of 1 element is considered sorted).
+ * Repeatedly merge sublists to produce new sorted sublists until there is only 1 sublist remaining. This will be the sorted list.
+ * Best, Average and Worst Case: O(n log(n))
  * @author Lars Vogel, Jeremy Wallace
  * @website http://www.vogella.com/tutorials/JavaAlgorithmsMergesort/article.html
- *
+ * @website http://www.synappi.com/
  */
-
 public class MergeSort extends Sort {
   
   private int[] helper;
@@ -23,14 +25,15 @@ public class MergeSort extends Sort {
   /**
    * This method will run the merge sort.
    */
+  @Override
   public void start() {
 	  mergeSort(0,intHolder-1);
   }
 
   /**
    * This is the main merge sort method, which is used recursively.
-   * @param low
-   * @param high
+   * @param low The low index value.
+   * @param high The high index value.
    */
   public void mergeSort(int low, int high) {
     // check if low is smaller then high, if not then the array is sorted

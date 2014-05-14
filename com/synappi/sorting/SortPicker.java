@@ -16,9 +16,11 @@ public class SortPicker {
 	
 	private int arraySize = SortPickerDriver.DEFAULT_ARRAY_SIZE;
 	private SortType sortType = SortPickerDriver.DEFAULT_SORT_TYPE;
+	
+	// To measure time / compare sorting algorithms.
 	long startTime, endTime, elapsedTime;
+	
 	public Sort sort;
-
 	int[] array;
 	
 	/**
@@ -29,34 +31,33 @@ public class SortPicker {
 	}
 	
 	/**
-	 * First record is 
+	 * Initialize the variables and set to defaults if type is null.
 	 * @param args
 	 */
 	public SortPicker(int arraySize, SortType sortType, int min, int max) {
 		
-		if (arraySize==0) {
-			System.err.println("No array size entered. Using default:"+this.arraySize);
-		} else {
+		// Error checking 
+		
+		if (arraySize!=0) {
 			this.arraySize = arraySize;
 		}
 		
-		if (sortType==null) {
-			System.err.println("No sorting type entered. Using default: "+this.sortType);
-		} else {
-			this.arraySize = arraySize;
+		if (sortType!=null) {
+			this.sortType = sortType;
 		}
 
 		if (max <= min) {
 			System.err.println("Max must be greater than min. Using defaults.");
 		}
 		
+		// Populate the array with random numbers.
 		array = new int[arraySize];
-		
 		for (int i = 0; i < this.arraySize; i++) {
 			array[i] = getRandomNumber(min,max);
 		}
 		
-		switch(sortType) {
+		// Initialize the sorting algorithm.
+		switch(this.sortType) {
 			case MERGE_SORT:
 				sort = new MergeSort(array);
 				break;
@@ -73,10 +74,17 @@ public class SortPicker {
 	
 	}
 	
+	/**
+	 * Returns the information about the sorting algorithm chosen.
+	 * @return General information about the sorting algorithm.
+	 */
 	public String getSortInfo() {
 		return sort.getInfo();
 	}
 
+	/**
+	 * Start the timer and run the sorting algorithm.
+	 */
 	public void runSort() {
 
 		startTime = System.currentTimeMillis();
@@ -86,10 +94,19 @@ public class SortPicker {
 	    
 	}
 	
+	/**
+	 * Helper method: Get a random number between any minimum and maximum integer value.
+	 * @param min Minimum integer value in random number range.
+	 * @param max Maximum integer value in random number range.
+	 * @return A random integer between the min and max values.
+	 */
 	private int getRandomNumber(int min, int max) {
 		return min + (int)(Math.random() * ((max - min) + 1));
 	}
 	
+	/**
+	 * @return The integer array as a string.
+	 */
 	public String getListString() {
 		
 		if (array.length > 0) {
@@ -108,6 +125,9 @@ public class SortPicker {
 		
 	}
 
+	/**
+	 * @return The elapsed time in ms for the sorting algorithm to complete.
+	 */
 	public String getElapsedTime() {
 		return String.valueOf(elapsedTime)+" ms";
 	}
