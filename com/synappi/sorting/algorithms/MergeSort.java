@@ -1,4 +1,4 @@
-package com.synappi.sorting.sortalgorithms;
+package com.synappi.sorting.algorithms;
 
 /**
  * Merge sort algorithm adapted from Lars Vogel.

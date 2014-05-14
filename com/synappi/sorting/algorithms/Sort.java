@@ -1,4 +1,4 @@
-package com.synappi.sorting.sortalgorithms;
+package com.synappi.sorting.algorithms;
 
 /**
  * Abstract sorting algorithm class that holds the common functionality and

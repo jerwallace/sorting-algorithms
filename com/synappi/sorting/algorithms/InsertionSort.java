@@ -1,4 +1,4 @@
-package com.synappi.sorting.sortalgorithms;
+package com.synappi.sorting.algorithms;
 
 /**
  * Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time.

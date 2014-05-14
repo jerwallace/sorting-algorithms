@@ -1,9 +1,9 @@
 package com.synappi.sorting;
 
-import com.synappi.sorting.sortalgorithms.InsertionSort;
-import com.synappi.sorting.sortalgorithms.MergeSort;
-import com.synappi.sorting.sortalgorithms.QuickSort;
-import com.synappi.sorting.sortalgorithms.Sort;
+import com.synappi.sorting.algorithms.InsertionSort;
+import com.synappi.sorting.algorithms.MergeSort;
+import com.synappi.sorting.algorithms.QuickSort;
+import com.synappi.sorting.algorithms.Sort;
 
 /**
  * SortPicker will pick from various types of sorting algorithms.
